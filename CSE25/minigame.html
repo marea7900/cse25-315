@@ -1,0 +1,258 @@
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+<head> 
+
+    <meta charset="UTF-8"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>mini game</title> 
+    <link rel="stylesheet" href="style.css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head> 
+
+<body> 
+
+   
+     <header class="main-nav-section">
+    <div class="container">
+        <div class="brand-area py-3">
+            <img src="https://i.pinimg.com/1200x/50/58/9d/50589d1d535153aaab07891231d1d994.jpg" alt="StudentFlow Logo"><h1 class="brand-name">STUDENTFLOW</h1>
+        </div>
+
+        
+         <nav class="d-flex flex-wrap  gap-2 nav-tiles">
+                <a href="index.html">HOME</a>
+                <a href="Dailyplanner.html">DAILY PLANNER</a>
+                <a href="careerpath.html">CAREER PATHS</a>
+                <a href="Budgetplanner.html">BUDGET PLANNER</a>
+                <a href="studytips.html">STUDY TIPS</a>
+                <a href="motivation.html">MOTIVATION</a>
+                <a href="minigame.html">MINI GAME</a>
+                <a href="contact.html">CONTACT PAGE</a>
+                <a href="signuplogin.html" >SIGNIN/LOGIN</a>
+            </nav>
+        </div>
+    </header>
+ 
+   
+       
+        
+
+ 
+
+    <main> 
+    
+<body>
+
+    <div class="container pb-5">
+        <div class="py-4">
+            <h1 class="italic fw-bold bg-white text-black d-inline-block px-4 py-1">MINI GAME</h1>
+        </div>
+
+
+    <main class="container py-4 text-center">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div id="careerCard" class="game-card p-5 shadow-sm text-white">
+                    <div class="card-overlay">
+                        <h2 class="fw-bold mb-3">CAREER QUIZ</h2>
+                        <p class="italic">60 Questions per track</p>
+                        <button class="btn btn-light w-100 py-3 fw-bold text-dark" onclick="openGameMenu('career')">START QUIZ</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div id="triviaCard" class="game-card p-5 shadow-sm text-white">
+                    <div class="card-overlay">
+                        <h2 class="fw-bold mb-3">TRIVIA</h2>
+                        <p class="italic">20 Questions of Knowledge</p>
+                        <button class="btn btn-primary w-100 py-3 fw-bold" onclick="openGameMenu('trivia')">PLAY TRIVIA</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="my-5">
+            <div class="score-display">
+                SCORES: <span id="scoreVal">0</span>
+            </div>
+        </div>
+
+        <div id="focusTimerSection" class="timer-section shadow-sm mx-auto text-white" style="max-width: 600px;" onclick="toggleTimer()">
+            <div class="card-overlay p-4 rounded-4">
+                <h5 class="text-uppercase mb-3">Practice Focus</h5>
+                <h2 class="display-1 fw-bold" id="timerDisplay">25:00</h2>
+                <p class="italic" id="timerStatus">TAP TO START</p>
+            </div>
+        </div>
+    </main>
+
+    <div id="gameOverlay" class="game-overlay">
+        <div class="game-modal-content">
+            <div id="gameBody"></div>
+            <button class="btn btn-outline-danger mt-4 w-100" onclick="closeModal()">Quit Game</button>
+        </div>
+    </div>
+
+    <script>
+        /* [JAVASCRIPT LOGIC REMAINS THE SAME AS PREVIOUS STEP] */
+        let score = 0; let currentQ = 0; let trackScore = 0; let activeTrack = "";
+        let timerSeconds = 1500; let timerActive = false; let interval;
+
+        const careerBank = {
+            tech: ["do you Like coding?", " what about Logic puzzles?", "are u into gaming?", "Math fan?", "curios about AI?", "do you love tech?", "Hardware fan?", "Cybersecurity?", "Data patterns?", "Web design?", "Programming?", "Desk work?", "Build PCs?", "Problem solver?", "Tech guides?", "Cloud tech?", "Robotics?", "Algorithms?", "Screen focus?", "Tech support?"],
+            business: ["are you a leader?", " do Sell ideas?", " are you buisness oriented?", "Stock market?", "Marketing?", "Budgeting?", "Public speaking?", "Networking?", "Event planning?", "Negotiating?", "Competitive?", "Global trade?", "Manage teams?", "HR interest?", "Profit focus?", "Multitasking?", "Pressure fan?", "Real estate?", "CEO bios?", "Performance pay?"],
+            health: ["Help sick?", "Anatomy?", "Lab research?", "Hospitals?", "Save lives?", "Biology?", "Stay calm?", "Empathy?", "Nutrition?", "Chemistry?", "Patient care?", "Pharmacy?", "Lab work?", "Surgery?", "Public health?", "Dental care?", "Psychology?", "Diagnosis tech?", "Hygiene focus?", "Healing?"]
+        };
+
+        const triviaBank = [
+            {q: "12x12?", a: "144"}, {q: "What is Japan Capital?", a: "tokyo"}, {q: "How many Continents are there in the world?", a: "7"}, {q: "what planet is red in color?", a: "mars"},
+            {q: "how many legs a spider have?", a: "8"}, {q: "whats the Largest Ocean?", a: "pacific"}, {q: "what is the Water formula?", a: "h2o"}, {q: " is the sun a star?", a: "yes"},
+            {q: "Mona Lisa?", a: "da vinci"}, {q: "Root of 64?", a: "8"}, {q: "Lightbulb?", a: "edison"}, {q: "Italy Capital?", a: "rome"},
+            {q: "how many days are ther i a leap year?", a: "366"}, {q: "Gold symbol?", a: "au"}, {q: "Tallest Mountain?", a: "everest"}, {q: " how many colors of the rainbow are there ?", a: "7"},
+            {q: "Pyramids location?", a: "egypt"}, {q: "USA Capital?", a: "washington"}, {q: "Fastest animal?", a: "cheetah"}, {q: "Thinking organ?", a: "brain"}
+        ];
+
+        function openGameMenu(mode) {
+            document.getElementById('gameOverlay').style.display = 'flex';
+            const body = document.getElementById('gameBody');
+            if(mode === 'career') {
+                body.innerHTML = `<h3>Choose Your Path</h3>
+                    <button class="btn btn-info m-2" onclick="initCareer('tech')">TECH</button>
+                    <button class="btn btn-warning m-2" onclick="initCareer('business')">BUSINESS</button>
+                    <button class="btn btn-success m-2" onclick="initCareer('health')">HEALTH</button>`;
+            } else { startTrivia(); }
+        }
+
+        function initCareer(track) { activeTrack = track; currentQ = 0; trackScore = 0; loadCareer(); }
+        function loadCareer() {
+            document.getElementById('gameBody').innerHTML = `
+                <span class="badge bg-dark mb-2">${currentQ+1}/20</span>
+                <h4 class="mb-4">${careerBank[activeTrack][currentQ]}</h4>
+                <button class="btn btn-success m-2 px-5" onclick="handleCareer(true)">YES</button>
+                <button class="btn btn-danger m-2 px-5" onclick="handleCareer(false)">NO</button>`;
+        }
+        function handleCareer(isYes) {
+            if(isYes) trackScore++; currentQ++;
+            if(currentQ < 20) loadCareer();
+            else { score += (trackScore * 10); updateUI(); document.getElementById('gameBody').innerHTML = `<h3>Result: Match</h3><p>Affinity for ${activeTrack}: ${trackScore}/20</p>`; }
+        }
+        function startTrivia() { currentQ = 0; loadTrivia(); }
+        function loadTrivia() {
+            const item = triviaBank[currentQ];
+            document.getElementById('gameBody').innerHTML = `
+                <span class="badge bg-primary mb-2">TRIVIA ${currentQ+1}/20</span>
+                <h4 class="mb-4">${item.q}</h4>
+                <input type="text" id="ans" class="form-control mb-3 text-center">
+                <button class="btn btn-primary w-100" onclick="checkTrivia('${item.a}')">Submit</button>`;
+        }
+        function checkTrivia(correct) {
+            if(document.getElementById('ans').value.toLowerCase() === correct) score += 20;
+            currentQ++; updateUI();
+            if(currentQ < 20) loadTrivia();
+            else document.getElementById('gameBody').innerHTML = "<h3>Game Complete!</h3>";
+        }
+        function updateUI() { document.getElementById('scoreVal').innerText = score; }
+        function closeModal() { document.getElementById('gameOverlay').style.display = 'none'; }
+        function toggleTimer() {
+            if(timerActive) { clearInterval(interval); timerActive = false; document.getElementById('timerStatus').innerText = "TAP TO START"; }
+            else {
+                timerActive = true; document.getElementById('timerStatus').innerText = "TAP TO PAUSE";
+                interval = setInterval(() => {
+                    timerSeconds--;
+                    let m = Math.floor(timerSeconds/60); let s = timerSeconds%60;
+                    document.getElementById('timerDisplay').innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
+                }, 1000);
+            }
+        }
+    </script>
+  
+</main>
+
+   <footer class="bg-dark-grey text-white pt-5 pb-3">
+
+    <div class="container">
+        <div class="row g-4">
+
+            
+            <div class="col-md-4">
+                <h5>Send Us Feedback</h5>
+
+                <form>
+                    <div class="mb-2">
+                        <input type="text" class="form-control" placeholder="Full Name" required>
+                    </div>
+
+                    <div class="mb-2">
+                        <input type="email" class="form-control" placeholder="Your Email" required>
+                    </div>
+
+                    <div class="mb-2">
+                        <textarea class="form-control" rows="3" placeholder="Feedback" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                </form>
+            </div>
+
+
+            
+            <div class="text-center col-md-4">
+                <h5>Site Map</h5>
+
+                <ul class="list-unstyled">
+                    <li><a href="index.html" class="text-white">Home</a></li>
+                    <li><a href="Dailyplanner.html" class="text-white">Daily Planner</a></li>
+                    <li><a href="careerpath.html" class="text-white">Career Paths</a></li>
+                    <li><a href="Budgetplanner.html" class="text-white">Budget Planner</a></li>
+                    <li><a href="studytips.html" class="text-white">Study Tips</a></li>
+                    <li><a href="motivation.html" class="text-white">Motivation</a></li>
+                    <li><a href="minigame.html" class="text-white">Mini Game</a></li>
+                    <li><a href="contact.html" class="text-white">Contact Page</a></li>
+                    <li><a href="signuplogin.html" class="text-white">signup/login</a></li>
+                </ul>
+            </div>
+
+
+<div class="col-md-4">
+    <img src="https://i.pinimg.com/1200x/50/58/9d/50589d1d535153aaab07891231d1d994.jpg" alt="StudentFlow Logo" class="footer-logo mb-3">
+    
+    <div class="d-flex align-items-center mb-2">
+        <img src="phone.svg" class="contact-icon me-2" alt="phone"> 
+        <p class="mb-0">Phone: +267 78698320</p>
+    </div>
+
+    <div class="d-flex align-items-center">
+        <img src="envelop.svg" class="contact-icon me-2" alt="email">
+        <p class="mb-0">Email: flowstudent@gmail.com</p>
+    
+</div>
+                
+            </div>
+
+        </div>
+
+        
+        <div class="text-center mt-4">
+            
+            <p>© 2026 StudentFlow. All rights reserved</p>
+        </div>
+
+    </div>
+
+</footer>
+  
+            
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+</body> 
+
+</html> 
