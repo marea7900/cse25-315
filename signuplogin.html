@@ -9,120 +9,229 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
     <title>Signup/login</title> 
-
+    <link rel="stylesheet" href="style.css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head> 
 
 <body> 
 
-    <header> 
+     <header class="main-nav-section">
+    <div class="container">
+        <div class="brand-area py-3">
+            <img src="https://i.pinimg.com/1200x/50/58/9d/50589d1d535153aaab07891231d1d994.jpg" alt="StudentFlow Logo"><h1 class="brand-name">STUDENTFLOW</h1>
+        </div>
 
-        <h1><img src="logo.png" alt="StudentFlow Logo"></h1> 
+    
+        
+         <nav class="d-flex flex-wrap  gap-2 nav-tiles">
+                <a href="index.html">HOME</a>
+                <a href="Dailyplanner.html">DAILY PLANNER</a>
+                <a href="careerpath.html">CAREER PATHS</a>
+                <a href="Budgetplanner.html">BUDGET PLANNER</a>
+                <a href="studytips.html">STUDY TIPS</a>
+                <a href="motivation.html">MOTIVATION</a>
+                <a href="minigame.html">MINI GAME</a>
+                <a href="contact.html">CONTACT PAGE</a>
+                <a href="signuplogin.html" >SIGNIN/LOGIN</a>
+            </nav>
+        </div>
+    </header>
+    
 
-        <nav> 
+    
+    <main class="container py-5 text-center">
+        <h1 class="signup-title">SIGNUP/LOGIN</h1>
+        <p class="subtitle">"FOR BETTER EXPERIENCE WITH WEBSITE"</p>
 
-            <a href="homepage.html">HOME</a> | 
-            <a href="Dailyplanner.html">DAILY PLANNER</a> | 
-            <a href="careerpath.html">CAREER PATH</a> 
-            <a href="Budgetplanner.html">BUDGET PLANNER</a>
-            <a href="studytips.html">STUDY TIPS</a>
-            <a href="motivation.html">MOTIVATION</a> 
-            <a href="minigame.html">MINIGAME</a> 
-            <a href="contact.html">CONTACT PAGE</a> 
-            <a href="signuplogin.html">SIGNUP/LOGIN</a> 
+        <div class="row justify-content-center align-items-center mt-5">
+            
+            <!-- SIGNUP BOX -->
+            <div class="col-md-5">
+                <div class="auth-card p-4">
+                    <h3>SIGNUP</h3>
+                    <p class="small">WITH</p>
+                    <div class="social-wrapper">
+                        <img src="Google icon.jpg" alt="G" class="social-icon">
+                    </div>
+                    <p class="small mt-2">OR</p>
+                    <form id="signupForm">
+                        <div class="mb-3 text-start">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control auth-input" placeholder="mail@example.gmail.com" required>
+                        </div>
+                        <div class="mb-3 text-start">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control auth-input" placeholder="Must be atleast 8 characters" required>
+                        </div>
+                        <button type="submit" class="btn btn-action w-100">SIGN UP</button>
+                    </form>
+                    <p class="terms-text mt-3">By signing up you agree with our TERMS AND CONDITIONS and our PRIVACY POLICY In fulfilling the user agreement, we will send you career offers by email. You can unsubscribe from emails that require consent at any time.
 
-        </nav> 
+ <br>      
+Already have an account? Go to Login
+</p>
+                </div>
+            </div>
 
-    </header> 
+            <div class="col-md-1 fw-bold auth-separator">OR</div>
+
+            <!-- LOGIN BOX -->
+            <div class="col-md-5">
+                <div class="auth-card p-4">
+                    <h3>LOGIN</h3>
+                    <p class="small">WITH</p>
+                    <div class="social-wrapper">
+                        <img src="Google icon.jpg" alt="G" class="social-icon">
+                    </div>
+                    <p class="small mt-2">OR</p>
+                    <form id="loginForm">
+                        <div class="mb-3 text-start">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control auth-input" placeholder="enter email address" required>
+                        </div>
+                        <div class="mb-3 text-start">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control auth-input" placeholder="Enter password" required>
+                        </div>
+                        <p class="text-end small"><a href="#" class="text-white">forgot password?</a></p>
+                        <button type="submit" class="btn btn-action w-100">LOG IN</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Custom Interactivity Notification (Toast) -->
+    <div id="statusToast" class="status-toast">
+        <div class="toast-content">
+            <span class="toast-check">✓</span>
+            <span id="toastText">Success!</span>
+        </div>
+    </div>
+
+    <!-- Script for Interactivity -->
+    <script>
+        function triggerResponse(event, message) {
+            event.preventDefault();
+            const toast = document.getElementById('statusToast');
+            const toastText = document.getElementById('toastText');
+            const btn = event.submitter;
+
+            // Change button state
+            const originalText = btn.innerText;
+            btn.innerText = "PROCESSING...";
+            btn.disabled = true;
+
+            setTimeout(() => {
+                // Show Custom Toast
+                toastText.innerText = message;
+                toast.classList.add('show');
+
+                // Reset Button
+                btn.innerText = originalText;
+                btn.disabled = false;
+
+                // Hide Toast after 3 seconds
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }, 800);
+        }
+
+        document.getElementById('signupForm').onsubmit = (e) => triggerResponse(e, "Account Created Successfully!");
+        document.getElementById('loginForm').onsubmit = (e) => triggerResponse(e, "Welcome Back to StudentFlow!");
+    </script>
+
+
+    
+       
 
  
 
-    <main> 
-        
-    <h2>SIGNUP/LOGIN</h2>
-    <p><em>"FOR BETTER EXPERIENCE WITH WEBSITE"</em></p>
-
-    <section>
-        <form>
-            <h3>SIGNUP</h3>
-            <button type="button">WITH GOOGLE</button>
-            <p>OR</p>
-            <label>Email Address:</label><br>
-            <input type="email" placeholder="mail@example.com"><br>
-            <label>Password:</label><br>
-            <input type="password" placeholder="Must be at least 8 characters"><br>
-            <button type="submit">SIGN UP</button>
-        </form>
-
-        <p><strong>OR</strong></p>
-
-        <form>
-            <h3>LOGIN</h3>
-            <button type="button">WITH GOOGLE</button>
-            <p>OR</p>
-            <label>Email Address:</label><br>
-            <input type="email" placeholder="enter email address"><br>
-            <label>Password:</label><br>
-            <input type="password" placeholder="enter password"><br>
-            <a href="#"><small>forgot password?</small></a><br>
-            <button type="submit">LOG IN</button>
-        </form>
-    </section>
+    
 
 </main>
         
- <hr>
-    
-    <footer> 
-        <table>
-    <tr>
-        <td>
-            
-        <h3>Contact Us <br>send us feeback</h3>
-    <form>
-        
-        <input type="text"placeholder="Full Name"><br><br>
-
-        <input type="email"placeholder="Your email"><br><br>
-
-    
-        <textarea>feedback</textarea><br><br>
-
-        <button type="submit">Submit</button>
-    </form>
-        </td>
  
-        <section>
-        <td>
-             <h3>Site Map</h3>
-    <ul>
-        <li>Home</li>
-        <li>Daily Planner</li>
-        <li>Career Paths</li>
-        <li>Budget Planner</li>
-        <li>Study Tips</li>
-        <li>Motivation</li>
-        <li>Mini Game</li>
-        <li>Contact Page</li>
-        <li>signup/login</li>
-    </ul>
-        </td>
+    
+     <footer>
+   <footer class="bg-dark-grey text-white pt-5 pb-3">
+
+    <div class="container">
+        <div class="row g-4">
+
+            
+            <div class="col-md-4">
+                <h5>Send Us Feedback</h5>
+
+                <form>
+                    <div class="mb-2">
+                        <input type="text" class="form-control" placeholder="Full Name" required>
+                    </div>
+
+                    <div class="mb-2">
+                        <input type="email" class="form-control" placeholder="Your Email" required>
+                    </div>
+
+                    <div class="mb-2">
+                        <textarea class="form-control" rows="3" placeholder="Feedback" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                </form>
+            </div>
+
+
+            
+            <div class="text-center col-md-4">
+                <h5>Site Map</h5>
+
+                <ul class="list-unstyled">
+                    <li><a href="index.html" class="text-white">Home</a></li>
+                    <li><a href="Dailyplanner.html" class="text-white">Daily Planner</a></li>
+                    <li><a href="careerpath.html" class="text-white">Career Paths</a></li>
+                    <li><a href="Budgetplanner.html" class="text-white">Budget Planner</a></li>
+                    <li><a href="studytips.html" class="text-white">Study Tips</a></li>
+                    <li><a href="motivation.html" class="text-white">Motivation</a></li>
+                    <li><a href="minigame.html" class="text-white">Mini Game</a></li>
+                    <li><a href="contact.html" class="text-white">Contact Page</a></li>
+                    <li><a href="signuplogin.html" class="text-white">signup/login</a></li>
+                </ul>
+            </div>
+
+
+            
+             <div class="col-md-4">
+    <img src="https://i.pinimg.com/1200x/50/58/9d/50589d1d535153aaab07891231d1d994.jpg" alt="StudentFlow Logo" class="footer-logo mb-3">
+    
+    <div class="d-flex align-items-center mb-2">
+        <img src="phone.svg" class="contact-icon me-2" alt="phone"> 
+        <p class="mb-0">Phone: +267 78698320</p>
+    </div>
+
+    <div class="d-flex align-items-center">
+        <img src="envelop.svg" class="contact-icon me-2" alt="email">
+        <p class="mb-0">Email: flowstudent@gmail.com</p>
+    
+</div>
+                
+            </div>
+
+        </div>
+
         
-        <td>
-           <ul>
-                <h3><img src="logo.png" alt="StudentFlow Logo"></h3>
-                    <li><p>Phone: +267 78698320</p></li>
-                     <li> <p>Email: flowstudent@gmail.com</p></li>
-            </ul>
-         
-        </td>
-    </tr>
-</table>
-     
-    <p>© 2026 StudentFlow. All RIGHTS RESERVED</p>
-       
+        <div class="text-center mt-4">
+            
+            <p>© 2026 StudentFlow. All rights reserved</p>
+        </div>
 
-    </footer> 
+    </div>
 
+</footer>
+  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
 </body> 
 
 </html> 
