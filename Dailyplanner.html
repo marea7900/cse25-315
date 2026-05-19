@@ -21,10 +21,12 @@
             <img src="https://i.pinimg.com/1200x/50/58/9d/50589d1d535153aaab07891231d1d994.jpg" alt="StudentFlow Logo"><h1 class="brand-name">STUDENTFLOW</h1>
         </div>
 
-
+     <button class="menu-toggle" id="menuToggle">
+            ☰ MENU
+     </button>
     
             
-            <nav class="d-flex flex-wrap  gap-2 nav-tiles">
+             <nav class="nav-tiles" id="mobileMenu">
                 <a href="index.html">HOME</a>
                 <a href="Dailyplanner.html">DAILY PLANNER</a>
                 <a href="careerpath.html">CAREER PATHS</a>
@@ -93,7 +95,7 @@
     </div>
 
     <script>
-        // ADD TASKS
+        
         function addTask() {
             const val = document.getElementById('taskInput').value;
             if(!val) return;
@@ -104,7 +106,7 @@
             document.getElementById('taskInput').value = '';
         }
 
-        // SET DEADLINES
+        
         function addDeadline() {
             const task = document.getElementById('deadTask').value;
             const date = document.getElementById('deadDate').value;
@@ -117,7 +119,7 @@
             document.getElementById('deadDate').value = '';
         }
 
-        // VIEW SCHEDULE
+        
         function toggleSchedule(show) {
             if(show) {
                 const tasks = document.getElementById('taskList').innerHTML;
@@ -126,7 +128,7 @@
                     <h6>TASKS:</h6> <ul>${tasks || 'None'}</ul>
                     <h6 class="mt-4">DEADLINES:</h6> <ul>${deadlines || 'None'}</ul>
                 `;
-                // Clean up delete buttons in the modal view
+                
                 document.querySelectorAll('#scheduleBody .text-danger').forEach(el => el.remove());
                 document.getElementById('scheduleOverlay').style.display = 'flex';
             } else {
@@ -134,22 +136,21 @@
             }
         }
 
-        // TRACK PROGRESS
+        
         function trackProgress() {
             const count = document.querySelectorAll('#taskList li').length;
             alert("You have " + count + " tasks in your daily queue. Keep going!");
         }
     </script>
-</body>
+
       
         
 
     </main> 
 
-    <hr>
-
-    <footer>
-   <footer class="bg-dark-grey text-white pt-5 pb-3">
+    
+    
+   <footer class="bg-dark text-white pt-5 pb-3">
 
     <div class="container">
         <div class="row g-4">
@@ -225,9 +226,19 @@
   
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+<script>
 
+const menuToggle = document.getElementById("menuToggle");
+
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuToggle.addEventListener("click", () => {
+
+    mobileMenu.classList.toggle("show");
+
+});
+
+</script>
 </body> 
 
 </html> 
