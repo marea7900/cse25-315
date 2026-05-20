@@ -722,7 +722,7 @@ button:focus{
 
 
     
-/* Removes any unexpected gaps around the main area */
+
 .contact-main-wrapper {
     width: 100%;
     
@@ -767,7 +767,7 @@ button:focus{
     border-radius: 0;
 }
 
-/* INFO BOX */
+
 .info-box{
     background: #666fd1;
     max-width: 380px;
