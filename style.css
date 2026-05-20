@@ -767,16 +767,18 @@ button:focus{
     border-radius: 0;
 }
 
-
 .info-box{
     background: #666fd1;
     max-width: 380px;
     margin: auto;
     min-height: 420px;
-    display: flex;
-    flex-direction: column;
+   flex-direction: column;
     justify-content: center;
-}.contact-icon{
+     display: block;
+    margin: 0 auto 15px auto;
+}
+
+.contact-icon{
     width: 24px;
     height: 24px;
 }
