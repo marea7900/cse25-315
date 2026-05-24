@@ -41,17 +41,6 @@
     </header>
 
 
-          
-   
-    
-
- 
-
-    <main> 
-    
-</head>
-<body>
-
     <main class="planner-wrapper">
         <div class="container text-center">
             <div class="text-start mb-5">
@@ -59,24 +48,24 @@
             </div>
             
             <div class="row justify-content-center g-5">
-                <div class="col-md-5">
-                    <div class="big-white-box">
+                <section class="col-md-5">
+                    <article class="big-white-box">
                         <h2 class="italic text-muted mb-4">+ ADD TASKS</h2>
                         <input type="text" id="taskInput" class="planner-input" placeholder="Type a task...">
                         <button class="btn btn-dark w-100" onclick="addTask()">ADD TO LIST</button>
                         <ul id="taskList" class="planner-list mt-4"></ul>
-                    </div>
-                </div>
+                    </artice>
+                </section>
 
-                <div class="col-md-5">
-                    <div class="big-white-box">
+                <section class="col-md-5">
+                    <article class="big-white-box">
                         <h2 class="italic text-muted mb-4">+ SET DEADLINES</h2>
                         <input type="text" id="deadTask" class="planner-input" placeholder="Task name...">
                         <input type="date" id="deadDate" class="planner-input">
                         <button class="btn btn-dark w-100" onclick="addDeadline()">SET DEADLINE</button>
                         <ul id="deadlineList" class="planner-list mt-4"></ul>
-                    </div>
-                </div>
+                    </aricle>
+                </section>
             </div>
 
             <div class="mt-5">
@@ -84,7 +73,7 @@
                 <button class="btn-black-action" onclick="trackProgress()">TRACK PROGRESS</button>
             </div>
         </div>
-    </main>
+    
 
     <div id="scheduleOverlay" class="schedule-overlay">
         <div class="schedule-card text-start">
@@ -93,6 +82,7 @@
             <button class="btn btn-danger w-100 fw-bold" onclick="toggleSchedule(false)">CLOSE</button>
         </div>
     </div>
+</main>
 
     <script>
         
