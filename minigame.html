@@ -40,15 +40,6 @@
         </div>
     </header>
  
-   
-       
-        
-
- 
-
-    <main> 
-    
-<body>
 
     <div class="container pb-5">
         <div class="py-4">
@@ -59,49 +50,140 @@
     <main class="container py-4 text-center">
         <div class="row g-4">
             <div class="col-md-6">
-                <div id="careerCard" class="game-card p-5 shadow-sm text-white">
-                    <div class="card-overlay">
+                <article id="careerCard" class="game-card p-5 shadow-sm text-white">
+                    <section class="card-overlay">
                         <h2 class="fw-bold mb-3">CAREER QUIZ</h2>
                         <p class="italic">60 Questions per track</p>
                         <button class="btn btn-light w-100 py-3 fw-bold text-dark" onclick="openGameMenu('career')">START QUIZ</button>
-                    </div>
-                </div>
+                    </section>
+                </article>
             </div>
 
             <div class="col-md-6">
-                <div id="triviaCard" class="game-card p-5 shadow-sm text-white">
-                    <div class="card-overlay">
+                <article id="triviaCard" class="game-card p-5 shadow-sm text-white">
+                    <section class="card-overlay">
                         <h2 class="fw-bold mb-3">TRIVIA</h2>
                         <p class="italic">20 Questions of Knowledge</p>
                         <button class="btn btn-primary w-100 py-3 fw-bold" onclick="openGameMenu('trivia')">PLAY TRIVIA</button>
-                    </div>
-                </div>
+                    </section>
+                </article>
             </div>
         </div>
 
-        <div class="my-5">
-            <div class="score-display">
+        <section class="my-5">
+            <aside class="score-display">
                 SCORES: <span id="scoreVal">0</span>
-            </div>
-        </div>
+            </aside>
+        </section>
 
-        <div id="focusTimerSection" class="timer-section shadow-sm mx-auto text-white" style="max-width: 600px;" onclick="toggleTimer()">
+        <section id="focusTimerSection" class="timer-section shadow-sm mx-auto text-white" style="max-width: 600px;" onclick="toggleTimer()">
             <div class="card-overlay p-4 rounded-4">
                 <h5 class="text-uppercase mb-3">Practice Focus</h5>
                 <h2 class="display-1 fw-bold" id="timerDisplay">25:00</h2>
                 <p class="italic" id="timerStatus">TAP TO START</p>
             </div>
-        </div>
-    </main>
+        </section>
+    
 
     <div id="gameOverlay" class="game-overlay">
         <div class="game-modal-content">
             <div id="gameBody"></div>
             <button class="btn btn-outline-danger mt-4 w-100" onclick="closeModal()">Quit Game</button>
         </div>
-    </div>
+         </div>
+        </div>
+</main>
 
-    <script>
+
+<footer class="bg-dark text-white pt-5 pb-3">
+
+    <div class="container">
+        <div class="row g-4">
+
+            
+            <div class="col-md-4">
+                <h5>Send Us Feedback</h5>
+
+                <form>
+                    <div class="mb-2">
+                        <input type="text" class="form-control" placeholder="Full Name" required>
+                    </div>
+
+                    <div class="mb-2">
+                        <input type="email" class="form-control" placeholder="Your Email" required>
+                    </div>
+
+                    <div class="mb-2">
+                        <textarea class="form-control" rows="3" placeholder="Feedback" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                </form>
+            </div>
+
+
+            
+            <div class="text-center col-md-4">
+                <h5>Site Map</h5>
+
+                <ul class="list-unstyled">
+                    <li><a href="index.html" class="text-white">Home</a></li>
+                    <li><a href="Dailyplanner.html" class="text-white">Daily Planner</a></li>
+                    <li><a href="careerpath.html" class="text-white">Career Paths</a></li>
+                    <li><a href="Budgetplanner.html" class="text-white">Budget Planner</a></li>
+                    <li><a href="studytips.html" class="text-white">Study Tips</a></li>
+                    <li><a href="motivation.html" class="text-white">Motivation</a></li>
+                    <li><a href="minigame.html" class="text-white">Mini Game</a></li>
+                    <li><a href="contact.html" class="text-white">Contact Page</a></li>
+                    <li><a href="signuplogin.html" class="text-white">signup/login</a></li>
+                </ul>
+            </div>
+
+
+
+    <div class="col-md-4">
+        <img src="https://i.pinimg.com/1200x/50/58/9d/50589d1d535153aaab07891231d1d994.jpg" alt="StudentFlow Logo" class="footer-logo mb-3">
+    
+        <address class="d-flex align-items-center mb-2">
+        <img src="phone.svg" class="contact-icon me-2" alt="phone"> 
+        <p class="mb-0">Phone: +267 78698320</p>
+         </address>
+
+        <address class="d-flex align-items-center">
+        <img src="envelop.svg" class="contact-icon me-2" alt="email">
+        <p class="mb-0">Email: flowstudent@gmail.com</p>
+    
+        </address>
+                
+        
+    </div>
+       <div class="text-center mt-4">
+            
+            <p>© 2026 StudentFlow. All rights reserved</p>
+    
+
+       </div>
+        </div> 
+</footer>
+  
+            
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script>
+
+const menuToggle = document.getElementById("menuToggle");
+
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuToggle.addEventListener("click", () => {
+
+    mobileMenu.classList.toggle("show");
+
+});
+  </script>
+<script>
         
         let score = 0; let currentQ = 0; let trackScore = 0; let activeTrack = "";
         let timerSeconds = 1500; let timerActive = false; let interval;
@@ -172,101 +254,8 @@
                 }, 1000);
             }
         }
-    </script>
-  
-</main>
-
-   <footer class="bg-dark text-white pt-5 pb-3">
-
-    <div class="container">
-        <div class="row g-4">
-
-            
-            <div class="col-md-4">
-                <h5>Send Us Feedback</h5>
-
-                <form>
-                    <div class="mb-2">
-                        <input type="text" class="form-control" placeholder="Full Name" required>
-                    </div>
-
-                    <div class="mb-2">
-                        <input type="email" class="form-control" placeholder="Your Email" required>
-                    </div>
-
-                    <div class="mb-2">
-                        <textarea class="form-control" rows="3" placeholder="Feedback" required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary w-100">Submit</button>
-                </form>
-            </div>
-
-
-            
-            <div class="text-center col-md-4">
-                <h5>Site Map</h5>
-
-                <ul class="list-unstyled">
-                    <li><a href="index.html" class="text-white">Home</a></li>
-                    <li><a href="Dailyplanner.html" class="text-white">Daily Planner</a></li>
-                    <li><a href="careerpath.html" class="text-white">Career Paths</a></li>
-                    <li><a href="Budgetplanner.html" class="text-white">Budget Planner</a></li>
-                    <li><a href="studytips.html" class="text-white">Study Tips</a></li>
-                    <li><a href="motivation.html" class="text-white">Motivation</a></li>
-                    <li><a href="minigame.html" class="text-white">Mini Game</a></li>
-                    <li><a href="contact.html" class="text-white">Contact Page</a></li>
-                    <li><a href="signuplogin.html" class="text-white">signup/login</a></li>
-                </ul>
-            </div>
-
-
-<div class="col-md-4">
-    <img src="https://i.pinimg.com/1200x/50/58/9d/50589d1d535153aaab07891231d1d994.jpg" alt="StudentFlow Logo" class="footer-logo mb-3">
-    
-    <div class="d-flex align-items-center mb-2">
-        <img src="phone.svg" class="contact-icon me-2" alt="phone"> 
-        <p class="mb-0">Phone: +267 78698320</p>
-    </div>
-
-    <div class="d-flex align-items-center">
-        <img src="envelop.svg" class="contact-icon me-2" alt="email">
-        <p class="mb-0">Email: flowstudent@gmail.com</p>
-    
-</div>
-                
-            </div>
-
-        </div>
-
-        
-        <div class="text-center mt-4">
-            
-            <p>© 2026 StudentFlow. All rights reserved</p>
-        </div>
-
-    </div>
-
-</footer>
-  
-            
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-<script>
-
-const menuToggle = document.getElementById("menuToggle");
-
-const mobileMenu = document.getElementById("mobileMenu");
-
-menuToggle.addEventListener("click", () => {
-
-    mobileMenu.classList.toggle("show");
-
-});
-
 </script>
+
 </body> 
 
 </html> 
