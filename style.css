@@ -1,6 +1,4 @@
-/* =========================================
-   ROOT COLORS
-========================================= */
+/*  ROOT COLORS */
 
 :root {
     --main-purple: #5d5fbd;
@@ -9,9 +7,7 @@
 }
 
 
-/* =========================================
-   GLOBAL STYLES
-========================================= */
+/* GLOBAL STYLES */
 
 * {
     margin: 0;
@@ -49,7 +45,6 @@ footer {
     display: block;
 }
 
-/* Resizes the small phone and envelope icons */
 .contact-icon {
     width: 20px;  
     height: 20px;
@@ -66,9 +61,7 @@ button:focus{
     outline:2px solid white;
 }
 
-/* =========================================
-   NAVIGATION / HERO SECTION
-========================================= */
+/*  NAVIGATION */
 
 .main-nav-section {
     background-color: #538cc6;
@@ -135,9 +128,7 @@ button:focus{
     display:none;
 }
 
-/* =========================================
-   FEATURES SECTION
-========================================= */
+/* FEATURES SECTION */
 
 .features {
     display: flex;
@@ -154,9 +145,7 @@ button:focus{
 }
 
 
-/* =========================================
-   FEATURE GRID
-========================================= */
+/*  FEATURE GRID */
 
 .feature-grid-bg {
     background-color: #6c7ae0;
@@ -202,9 +191,7 @@ button:focus{
 }
 
 
-/* =========================================
-   FEATURE BACKGROUND IMAGES
-========================================= */
+/* FEATURE BACKGROUND IMAGES*/
 
 .planner-bg {
     background-image: url('daily planner.jpg');
@@ -231,9 +218,7 @@ button:focus{
 }
 
 
-/* =========================================
-   DAILY PLANNER PAGE
-========================================= */
+/*  DAILY PLANNER PAGE */
 
 .planner-wrapper {
     background: url('planning.jpg') center/cover no-repeat;
@@ -308,9 +293,7 @@ button:focus{
 }
 
 
-/* =========================================
-   OVERLAY MODALS
-========================================= */
+/* OVERLAY MODALS */
 
 .schedule-overlay,
 .research-overlay,
@@ -350,9 +333,7 @@ button:focus{
 }
 
 
-/* =========================================
-   CAREER PAGE
-========================================= */
+/*  CAREER PAGE */
 
 .career-img {
     width: 100%;
@@ -394,9 +375,7 @@ button:focus{
 }
 
 
-/* =========================================
-   STUDY TIPS
-========================================= */
+/* STUDY TIPS */
 
 
 .banner-container {
@@ -449,9 +428,7 @@ button:focus{
 }
 
 
-/* =========================================
-   BUDGET PLANNER
-========================================= */
+/* BUDGET PLANNER */
 
 .budget-container {
     background: url('budget planner.jpg') no-repeat center center;
@@ -543,9 +520,7 @@ button:focus{
 }
 
 
-/* =========================================
-   MOTIVATION PAGE
-========================================= */
+/*  MOTIVATION PAGE */
 
 .quote-slider {
     background: #6c7ae0;
@@ -630,9 +605,7 @@ button:focus{
 }
 
 
-/* =========================================
-   MINI GAME PAGE
-========================================= */
+/*  MINI GAME PAGEn*/
 
 #careerCard,
 #triviaCard,
@@ -716,12 +689,7 @@ button:focus{
 }
 
 
-/* =========================================
-   CONTACT PAGE
-========================================= */
-
-
-    
+/* CONTACT PAGE */
 
 .contact-main-wrapper {
     width: 100%;
@@ -807,9 +775,7 @@ button:focus{
 
 
 
-/* =========================================
-   SIGNUP / LOGIN PAGE
-========================================= */
+/*  SIGNUP / LOGIN PAGE */
 
 .signup-title {
     font-style: italic;
@@ -912,9 +878,7 @@ button:focus{
 }
 
 
-/* =========================================
-   TOAST NOTIFICATION
-========================================= */
+/* TOAST NOTIFICATION */
 
 .status-toast {
     position: fixed;
@@ -960,9 +924,7 @@ button:focus{
 }
 
 
-/* =========================================
-   RESPONSIVE DESIGN
-========================================= */
+/* MOBILE RESPONSIVE DESIGN */
 
 @media (max-width: 768px) {
 
