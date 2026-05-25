@@ -47,59 +47,59 @@
 
  
 
-    <main> 
-<body class="bg-black text-white">
+    
+<main class="bg-black text-white">
 
     <div class="container pb-5">
         <div class="py-4">
             <h1 class="italic fw-bold bg-white text-black d-inline-block px-4 py-1">STUDY TIPS</h1>
         </div>
 
-       <div class="banner-container">
+       <figure class="banner-container">
         <img src="study tip.jpg" alt="study tip" class="banner-img">
-    </div>
- <hr>
+       </figure>
+     
         <div class="row g-4">
             <div class="col-md-6">
-                <div class="tip-box" onclick="openStudy('exam')">
+                <article class="tip-box" onclick="openStudy('exam')">
                     <img src="exam time.jpg" alt="Exam Tips" class="img-fluid">
-                    <div class="label">EXAM TIPS</div>
-                </div>
+                    <p class="label">EXAM TIPS</p>
+                </article>
             </div>
 
             <div class="col-md-6">
-                <div class="tip-box" onclick="openStudy('time')">
+                <article class="tip-box" onclick="openStudy('time')">
                     <img src="T2.jpg" alt="Time Management" class="img-fluid">
-                    <div class="label">TIME MANAGEMENT SKILLS</div>
-                </div>
+                    <p class="label">TIME MANAGEMENT SKILLS</p>
+                </article>
             </div>
 
             <div class="col-md-6">
-                <div class="tip-box" onclick="openStudy('notes')">
+                <article class="tip-box" onclick="openStudy('notes')">
                     <img src="NOTE.jpg" alt="Note Taking" class="img-fluid">
-                    <div class="label">NOTE TAKING TECHNIQUES</div>
-                </div>
+                    <p class="label">NOTE TAKING TECHNIQUES</p>
+                </article>
             </div>
 
             <div class="col-md-6">
-                <div class="tip-box" onclick="openStudy('focus')">
+                <article class="tip-box" onclick="openStudy('focus')">
                     <img src="focus.jpg" alt="Focus Techniques" class="img-fluid">
-                    <div class="label">FOCUS TECHNIQUES</div>
-                </div>
+                    <p class="label">FOCUS TECHNIQUES</p>
+                </article>
             </div>
         </div>
     </div>
 
-    <div id="studyModal" class="modal-overlay">
-        <div class="modal-content-card">
+    <section id="studyModal" class="modal-overlay">
+        <article class="modal-content-card">
             <h3 id="modalTitle" class="text-dark fw-bold mb-4 italic"></h3>
             <div class="d-grid gap-3">
                 <button id="guideBtn" class="btn btn-primary py-3 fw-bold">Read Verified Guide</button>
                 <button id="ytBtn" class="btn btn-danger py-3 fw-bold">Watch Video Tutorial</button>
                 <button class="btn btn-dark" onclick="closeModal()">Close</button>
             </div>
-        </div>
-    </div>
+        </article>
+    </section>
 
     <script>
         const sources = {
@@ -187,33 +187,31 @@
                 </ul>
             </div>
 
- <div class="col-md-4">
-    <img src="https://i.pinimg.com/1200x/50/58/9d/50589d1d535153aaab07891231d1d994.jpg" alt="StudentFlow Logo" class="footer-logo mb-3">
+      <div class="col-md-4">
+        <img src="https://i.pinimg.com/1200x/50/58/9d/50589d1d535153aaab07891231d1d994.jpg" alt="StudentFlow Logo" class="footer-logo mb-3">
     
-    <div class="d-flex align-items-center mb-2">
+        <address class="d-flex align-items-center mb-2">
         <img src="phone.svg" class="contact-icon me-2" alt="phone"> 
         <p class="mb-0">Phone: +267 78698320</p>
-    </div>
+         </address>
 
-    <div class="d-flex align-items-center">
+        <address class="d-flex align-items-center">
         <img src="envelop.svg" class="contact-icon me-2" alt="email">
         <p class="mb-0">Email: flowstudent@gmail.com</p>
     
-</div>
+        </address>
                 
-            </div>
-
-        </div>
-
         
-        <div class="text-center mt-4">
+    </div>
+       <div class="text-center mt-4">
             
             <p>© 2026 StudentFlow. All rights reserved</p>
-        </div>
+    
 
-    </div>
-
+       </div>
+    
 </footer>
+  
   
             
             
@@ -234,4 +232,3 @@ menuToggle.addEventListener("click", () => {
 </body> 
 
 </html> 
-
