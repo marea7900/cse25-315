@@ -94,7 +94,6 @@
         <article class="modal-content-card">
             <h3 id="modalTitle" class="text-dark fw-bold mb-4 italic"></h3>
             <div class="d-grid gap-3">
-                <button id="guideBtn" class="btn btn-primary py-3 fw-bold">Read Verified Guide</button>
                 <button id="ytBtn" class="btn btn-danger py-3 fw-bold">Watch Video Tutorial</button>
                 <button class="btn btn-dark" onclick="closeModal()">Close</button>
             </div>
@@ -105,30 +104,25 @@
         const sources = {
             'exam': {
                 title: 'EXAM TIPS',
-                guide: 'https://www.ox.ac.uk/students/academic/exams/guidance', 
                 yt: 'https://www.youtube.com/results?search_query=exam+preparation+tips'
             },
             'time': {
                 title: 'TIME MANAGEMENT',
-                guide: 'https://learningcenter.unc.edu/tips-and-tools/time-management/', 
                 yt: 'https://www.youtube.com/results?search_query=student+time+management+skills'
             },
             'notes': {
                 title: 'NOTE TAKING TECHNIQUES',
-                guide: 'https://lsc.cornell.edu/how-to-study/taking-notes/cornell-note-taking-system/', 
                 yt: 'https://www.youtube.com/results?search_query=best+note+taking+techniques+for+students'
             },
             'focus': {
                 title: 'FOCUS TECHNIQUES',
-                guide: 'https://hbr.org/2017/12/how-to-regain-your-focus-at-work', 
-                yt: 'https://www.youtube.com/results?search_query=how+to+stay+focused+studying'
+                 yt: 'https://www.youtube.com/results?search_query=how+to+stay+focused+studying'
             }
         };
 
         function openStudy(key) {
             const data = sources[key];
             document.getElementById('modalTitle').innerText = data.title;
-            document.getElementById('guideBtn').onclick = () => window.open(data.guide, '_blank');
             document.getElementById('ytBtn').onclick = () => window.open(data.yt, '_blank');
             document.getElementById('studyModal').style.display = 'flex';
         }
